@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // ATENÇÃO: SUBSTITUA PELA URL DO SEU BACKEND NO RENDER!
     const BACKEND_URL = 'https://meu-dashboard-pedidos.onrender.com'; 
 
     const socket = io(BACKEND_URL);
@@ -20,22 +19,18 @@ document.addEventListener('DOMContentLoaded', () => {
         statusDiv.innerHTML = '<span></span> Desconectado';
     });
     
-    // Ouve o evento 'novo_pedido' que o backend envia
     socket.on('novo_pedido', (pedido) => {
         console.log('Novo pedido recebido:', pedido);
 
-        // Toca o som de notificação
         somNotificacao.play().catch(error => {
             console.warn("O navegador bloqueou a reprodução automática do som. O usuário precisa interagir com a página primeiro.", error);
         });
 
-        // Adiciona o pedido na tela
         adicionarPedidoNaTela(pedido);
     });
 
     function adicionarPedidoNaTela(pedido) {
         const card = document.createElement('div');
-        // Adiciona classes para estilização
         card.className = `pedido-card ${pedido.origem.split(' ')[0].toLowerCase()}`;
 
         card.innerHTML = `
@@ -52,7 +47,6 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
         `;
 
-        // Adiciona o novo pedido no TOPO da lista
         pedidosContainer.prepend(card);
     }
 });
