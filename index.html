@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard de Pedidos em Tempo Real</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Painel de Pedidos</h1>
+        <div id="status-conexao" class="desconectado">
+            <span></span> Desconectado
+        </div>
+    </header>
+    <main id="pedidos-container">
+        </main>
+
+    <audio id="som-notificacao" src="notification.mp3" preload="auto"></audio>
+
+    <script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
+    
+    <script src="script.js"></script>
+</body>
+</html>
